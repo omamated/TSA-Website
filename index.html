@@ -9,27 +9,38 @@
         background-color: rgb(126, 168, 248);
         margin: 0;
         padding: 0;
+        position: relative;
       }
       
-      #img1 {
-        border-radius: 15px;
-        background: #04AA6D;
-        width: 700px;
-        position: absolute;
-        top: 175px;
-        right: 100px;
+      /* Blurred background image */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('water tower photo.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(8px);
+        opacity: 0.3;
+        z-index: -1;
       }
       
       .box-container {
         display: flex;
         justify-content: center;
         gap: 40px;
-        margin: 250px auto;
+        margin: 100px auto;
         max-width: 1200px;
+        position: relative;
+        z-index: 1;
       }
       
       .box {
-        background: rgb(139, 144, 160);
+        background: rgba(139, 144, 160, 0.9);
         width: 300px;
         border-radius: 20px;
         padding: 20px;
@@ -41,6 +52,24 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
+      }
+
+      h1, h3 {
+        position: relative;
+        z-index: 1;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .intro-text {
+        margin: 50px auto;
+        width: 600px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 1;
       }
 
       .navbar {
@@ -126,10 +155,10 @@
   
     <h1 align="center">The Rosenberg/Richmond Community</h1>
     <h3 align="center">This is our community that contains Richmond and Rosenberg</h3>
-    <img id="img1" src="water tower photo.jpg" alt="an image of Rosenberg" style="margin: 50px;" />
-    <p style="margin-left: 500px; margin-top: 100px; width: 350px;">
+    
+    <div class="intro-text">
       <strong>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum, eos quam voluptatibus natus alias laudantium nobis possimus ab ex vero inventore officiis nesciunt a debitis, distinctio facilis, magni iure blanditiis! Ullam soluta in placeat nobis. Tenetur, neque praesentium dolor illo veniam nesciunt quibusdam eveniet quod obcaecati voluptates maxime consequatur aut iste illum natus, quos quaerat sequi? Asperiores quidem nobis perferendis similique repellat quae voluptatibus dolores quia. Facere tenetur est perspiciatis, impedit nihil optio error maiores?</strong>
-    </p>
+    </div>
     
     <div class="box-container">
       <div class="box">
