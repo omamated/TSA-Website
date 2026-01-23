@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosenberg / Richmond - Timeline</title>
     <style>
-      body {
-        background-color: rgb(126, 168, 248);
-        margin: 0;
-        padding: 0;
-      }
-      
+    body {
+      background-color: rgb(255, 255, 255);
+     margin: 0;
+     padding: 0;
+     position: relative;
+     height: auto;
+     min-height: 3000px;
+     background-image: url("timeline.png");
+      background-size: cover;
+      background-position: top;
+      background-repeat: no-repeat;
+     margin: 0;
+      padding: 0;
+    }
+
       h1, h2, h3, p {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -130,17 +139,14 @@
         <button class="dropdown-btn" onclick="toggleDropdown()">Menu ▼</button>
         <div class="dropdown-content" id="myDropdown">
           <a href="index.html">Home</a>
-          <a href="timeline.html">Timeline</a>
+          <a href="timeline.html">History</a>
           <a href="map.html">Resource Map</a>
           <a href="interview.html">Interview with Locals</a>
         </div>
       </div>
     </nav>
     
-    <div class="timeline-container">
-      <h1>Historical Timeline</h1>
-      <img src="timeline.png" alt="Rosenberg/Richmond Historical Timeline">
-    </div>
+   
     
     <script>
       function toggleDropdown() {
