@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richmond / Rosenberg - Timeline</title>
+    <style>
+    body {
+      background-color: rgb(236, 231, 221);
+     margin: 0;
+     padding: 0;
+     position: relative;
+     height: auto;
+     min-height: 3000px;
+     background-image: url("timeline.png");
+      background-size: cover;
+      background-position: top;
+      background-repeat: no-repeat;
+     margin: 0;
+      padding: 0;
+    }
+
+      h1, h2, h3, p {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        color: white;
+      }
+      
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        background-color: rgb(53, 46, 46);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .nav-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+      }
+      
+      .nav-links {
+        position: relative;
+      }
+      
+      .dropdown-btn {
+        background-color: transparent;
+        color: white;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .dropdown-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: rgb(53, 46, 46);
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        margin-top: 5px;
+        overflow: hidden;
+      }
+      
+      .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s ease;
+      }
+      
+      .dropdown-content a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      .dropdown-content.show {
+        display: block;
+      }
+      
+      .timeline-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+      }
+      
+      .timeline-container h1 {
+        margin-bottom: 30px;
+        font-size: 36px;
+        text-align: center;
+      }
+      
+      .timeline-container img {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+      
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 15px 20px;
+        }
+        
+        .nav-title {
+          font-size: 20px;
+        }
+        
+        .timeline-container h1 {
+          font-size: 28px;
+        }
+        
+        .timeline-container img {
+          max-width: 100%;
+        }
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+      <div class="nav-title">Richmond / Rosenberg</div>
+      <div class="nav-links">
+        <button class="dropdown-btn" onclick="toggleDropdown()">Menu ▼</button>
+        <div class="dropdown-content" id="myDropdown">
+          <a href="index.html">Home</a>
+          <a href="timeline.html">History</a>
+          <a href="map.html">Resource Map</a>
+          <a href="interview.html">Community Interviews</a>
+        </div>
+      </div>
+    </nav>
+    
+   
+    
+    <script>
+      function toggleDropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+        
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropdown-btn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
+</body>
+</html>
