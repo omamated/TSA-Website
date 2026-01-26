@@ -5,28 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richmond/Rosenberg - Process</title>
     <style>
-    body {
-      background-color: rgb(236, 231, 221);
-     margin: 0;
-     padding: 0;
-     position: relative;
-     height: auto;
-     min-height: 3000px;
-     background-image: url("timeline.png");
-      background-size: cover;
-      background-position: top;
-      background-repeat: no-repeat;
-     margin: 0;
-      padding: 0;
-    }
+      body {
+        background-color: rgb(236, 231, 221);
+        margin: 0;
+        padding: 0;
+      }
 
       h1, h2, h3, p {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
-        color: white;
+        color: rgb(0, 0, 0);
       }
-      
+
       .navbar {
         display: flex;
         justify-content: space-between;
@@ -48,7 +39,7 @@
       .nav-links {
         position: relative;
       }
-      
+
       .dropdown-btn {
         background-color: transparent;
         color: white;
@@ -59,11 +50,11 @@
         border-radius: 5px;
         transition: background-color 0.3s ease;
       }
-      
+
       .dropdown-btn:hover {
         background-color: rgba(255, 255, 255, 0.1);
       }
-      
+
       .dropdown-content {
         display: none;
         position: absolute;
@@ -75,7 +66,7 @@
         margin-top: 5px;
         overflow: hidden;
       }
-      
+
       .dropdown-content a {
         color: white;
         padding: 12px 16px;
@@ -83,52 +74,29 @@
         display: block;
         transition: background-color 0.3s ease;
       }
-      
+
       .dropdown-content a:hover {
         background-color: rgba(255, 255, 255, 0.1);
       }
-      
+
       .dropdown-content.show {
         display: block;
       }
-      
-      .timeline-container {
+
+      .map-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 40px 20px;
       }
-      
-      .timeline-container h1 {
+
+      .map-container h1 {
         margin-bottom: 30px;
-        font-size: 36px;
-        text-align: center;
       }
-      
-      .timeline-container img {
-        max-width: 500px;
-        width: 100%;
-        height: auto;
+
+      .map-container iframe {
         border-radius: 15px;
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      }
-      
-      @media (max-width: 768px) {
-        .navbar {
-          padding: 15px 20px;
-        }
-        
-        .nav-title {
-          font-size: 20px;
-        }
-        
-        .timeline-container h1 {
-          font-size: 28px;
-        }
-        
-        .timeline-container img {
-          max-width: 100%;
-        }
       }
     </style>
 </head>
@@ -146,9 +114,16 @@
         </div>
       </div>
     </nav>
-    
-   
-    
+
+    <div class="map-container">
+      <h1>The Making of Our Resource Hub</h1>
+      <iframe 
+        src="https://websiteporfolio2026.carrd.co/"
+        width="1200" 
+        height="700">
+      </iframe>
+    </div>
+
     <script>
       function toggleDropdown() {
         document.getElementById("myDropdown").classList.toggle("show");
