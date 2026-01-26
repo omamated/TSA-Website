@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Map of Richmond/Rosenberg</title>
+
     <style>
       body {
         background-color: rgb(236, 231, 221);
@@ -11,11 +12,8 @@
         padding: 0;
       }
 
-      h1, h2, h3, p {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-          sans-serif;
-        color: rgb(0, 0, 0);
+      h1 {
+        font-family: system-ui, sans-serif;
       }
 
       .navbar {
@@ -24,35 +22,26 @@
         align-items: center;
         padding: 15px 40px;
         background-color: rgb(53, 46, 46);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         position: sticky;
         top: 0;
-        z-index: 100;
       }
-      
+
       .nav-title {
+        color: white;
         font-size: 24px;
         font-weight: bold;
-        color: #fff;
       }
-      
+
       .nav-links {
         position: relative;
       }
 
       .dropdown-btn {
-        background-color: transparent;
+        background: none;
         color: white;
-        font-size: 18px;
         border: none;
+        font-size: 18px;
         cursor: pointer;
-        padding: 10px 20px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-      }
-
-      .dropdown-btn:hover {
-        background-color: rgba(255, 255, 255, 0.1);
       }
 
       .dropdown-content {
@@ -61,22 +50,13 @@
         right: 0;
         background-color: rgb(53, 46, 46);
         min-width: 160px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-        margin-top: 5px;
-        overflow: hidden;
       }
 
       .dropdown-content a {
         color: white;
         padding: 12px 16px;
-        text-decoration: none;
         display: block;
-        transition: background-color 0.3s ease;
-      }
-
-      .dropdown-content a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        text-decoration: none;
       }
 
       .dropdown-content.show {
@@ -84,23 +64,13 @@
       }
 
       .map-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 20px;
-      }
-
-      .map-container h1 {
-        margin-bottom: 30px;
-      }
-
-      .map-container iframe {
-        border-radius: 15px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        padding: 30px;
       }
     </style>
-</head>
-<body>
+  </head>
+
+  <body>
     <nav class="navbar">
       <div class="nav-title">Richmond / Rosenberg</div>
       <div class="nav-links">
@@ -110,17 +80,58 @@
           <a href="timeline.html">History</a>
           <a href="map.html">Resource Map</a>
           <a href="interview.html">Community Interviews</a>
-          <a href="documentation.html">The Process</a>
         </div>
       </div>
     </nav>
 
     <div class="map-container">
       <h1>Map of Richmond/Rosenberg</h1>
-      <iframe 
-        src="https://www.google.com/maps/d/embed?mid=1m6qLAWDaUelmmlvOboxI9-Nx3XqWnnc&ehbc=2E312F" 
-        width="1200" 
-        height="700">
+
+      <select onchange="myFunction(this.value)">
+        <option
+          value="https://www.google.com/maps/d/embed?mid=1m6qLAWDaUelmmlvOboxI9-Nx3XqWnnc"
+        >
+          Full Map
+        </option>
+        <option
+          value="https://www.google.com/maps/d/embed?mid=1PzrUI3J8eYQbAU2cYDtctK3-34MKqPA"
+        >
+          Recreation
+        </option>
+        <option
+          value="https://www.google.com/maps/d/embed?mid=1L1S9ErGAD2BRTP-1joMJz6baVUlul-o"
+        >
+          Community
+        </option>
+        <option
+          value="https://www.google.com/maps/d/embed?mid=1NI8nBDawcHFjlObFwIBQwGmn1M_Mn64"
+        >
+          Resources
+        </option>
+        <option
+          value="https://www.google.com/maps/d/embed?mid=1ujT4xs7jHnE8Lmo7chpt_3HmKmSvBpk"
+        >
+          Healthcare
+        </option>
+      </select>
+      <form
+        action="https://www.google.com/maps/search/"
+        method="get"
+        target="_blank"
+      >
+        <input type="text" name="q" placeholder="Search places in Richmond" />
+        <input type="hidden" name="near" value="Richmond TX" />
+        <button type="submit">Search</button>
+      </form>
+
+      <br /><br />
+
+      <iframe
+        id="mapFrame"
+        src="https://www.google.com/maps/d/embed?mid=1m6qLAWDaUelmmlvOboxI9-Nx3XqWnnc"
+        width="1200"
+        height="700"
+      >
       </iframe>
     </div>
 
@@ -128,18 +139,16 @@
       function toggleDropdown() {
         document.getElementById("myDropdown").classList.toggle("show");
       }
-        
+
       window.onclick = function(event) {
         if (!event.target.matches('.dropdown-btn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
-          }
+          document.getElementById("myDropdown").classList.remove("show");
         }
       }
+
+      function myFunction(url) {
+        document.getElementById("mapFrame").src = url;
+      }
     </script>
-</body>
+  </body>
 </html>
