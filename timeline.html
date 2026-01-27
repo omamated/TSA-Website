@@ -4,34 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Richmond/Rosenberg - History</title>
+
     <style>
       body {
         background-color: rgb(236, 231, 221);
         margin: 0;
         padding: 0;
-        position: relative;
-        min-height: 100vh;
-        background-image: url("timeline.png");
-        background-size: contain;
-        background-position: top center;
-        background-repeat: no-repeat;
       }
 
-      h1,
-      h2,
-      h3,
-      p {
-        font-family:
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          Oxygen,
-          Ubuntu,
-          Cantarell,
-          "Open Sans",
-          "Helvetica Neue",
+      h1, h2, h3, p {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
         color: rgb(53, 46, 46);
       }
@@ -101,59 +84,21 @@
         display: block;
       }
 
-      .timeline-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 20px;
-        min-height: calc(100vh - 70px);
+      /* Container for the full-width timeline image */
+      .timeline-image-wrapper {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 20px;
       }
 
-      .timeline-container h1 {
-        margin-bottom: 30px;
-        font-size: 36px;
-        text-align: center;
-      }
-
-      .timeline-container img {
-        max-width: 500px;
+      .timeline-image-wrapper img {
         width: 100%;
         height: auto;
-        border-radius: 15px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Desktop-specific adjustments for full image view */
-      @media (min-width: 769px) {
-        body {
-          background-size: auto;
-          background-position: top center;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .navbar {
-          padding: 15px 20px;
-        }
-
-        .nav-title {
-          font-size: 20px;
-        }
-
-        .timeline-container h1 {
-          font-size: 28px;
-        }
-
-        .timeline-container img {
-          max-width: 100%;
-        }
-
-        body {
-          background-size: contain;
-        }
+        display: block;
       }
     </style>
   </head>
+
   <body>
     <nav class="navbar">
       <div class="nav-title">Richmond / Rosenberg</div>
@@ -169,6 +114,11 @@
         </div>
       </div>
     </nav>
+
+    <!-- FULL-WIDTH RESPONSIVE IMAGE -->
+    <div class="timeline-image-wrapper">
+      <img src="timeline.png" alt="Timeline">
+    </div>
 
     <script>
       function toggleDropdown() {
@@ -186,15 +136,6 @@
           }
         }
       };
-
-      // Adjust body height to match the actual image height
-      window.addEventListener("load", function () {
-        const img = new Image();
-        img.src = "timeline.png";
-        img.onload = function () {
-          document.body.style.minHeight = img.height + "px";
-        };
-      });
     </script>
   </body>
 </html>
