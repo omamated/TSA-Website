@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Richmond/Rosenberg - Process</title>
     <style>
       body {
@@ -10,14 +10,24 @@
         margin: 0;
         padding: 0;
       }
-
-      h1, h2, h3, p {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      h1,
+      h2,
+      h3,
+      p {
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          "Open Sans",
+          "Helvetica Neue",
           sans-serif;
         color: rgb(53, 46, 46);
       }
-
       .navbar {
         display: flex;
         justify-content: space-between;
@@ -29,17 +39,16 @@
         top: 0;
         z-index: 100;
       }
-      
+
       .nav-title {
         font-size: 24px;
         font-weight: bold;
         color: #fff;
       }
-      
+
       .nav-links {
         position: relative;
       }
-
       .dropdown-btn {
         background-color: transparent;
         color: white;
@@ -50,11 +59,9 @@
         border-radius: 5px;
         transition: background-color 0.3s ease;
       }
-
       .dropdown-btn:hover {
         background-color: rgba(255, 255, 255, 0.1);
       }
-
       .dropdown-content {
         display: none;
         position: absolute;
@@ -66,7 +73,6 @@
         margin-top: 5px;
         overflow: hidden;
       }
-
       .dropdown-content a {
         color: white;
         padding: 12px 16px;
@@ -74,33 +80,44 @@
         display: block;
         transition: background-color 0.3s ease;
       }
-
       .dropdown-content a:hover {
         background-color: rgba(255, 255, 255, 0.1);
       }
-
       .dropdown-content.show {
         display: block;
       }
-
       .map-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 40px 20px;
       }
-
       .map-container h1 {
         margin-bottom: 30px;
       }
-
       .map-container iframe {
         border-radius: 15px;
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
       }
+      .pdf-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        margin-top: 20px;
+      }
+      .pdf-container h2 {
+        margin-bottom: 20px;
+      }
+      .pdf-container iframe {
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        border: none;
+        margin-bottom: 40px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar">
       <div class="nav-title">Richmond / Rosenberg</div>
       <div class="nav-links">
@@ -115,13 +132,30 @@
         </div>
       </div>
     </nav>
-
     <div class="map-container">
       <h1>The Creation of Our Resource Hub</h1>
-      <iframe 
+      <iframe
         src="https://websiteporfolio2026.carrd.co/"
-        width="1200" 
-        height="3000">
+        width="1200"
+        height="3000"
+      >
+      </iframe>
+    </div>
+
+    <div class="pdf-container">
+      <h2>Documentation</h2>
+      <iframe src="doc.pdf" width="1200" height="800" type="application/pdf">
+        <p>
+          Your browser does not support PDFs.
+          <a href="doc.pdf">Download the PDF</a>.
+        </p>
+      </iframe>
+
+      <iframe src="doc2.pdf" width="1200" height="800" type="application/pdf">
+        <p>
+          Your browser does not support PDFs.
+          <a href="doc2.pdf">Download the PDF</a>.
+        </p>
       </iframe>
     </div>
 
@@ -129,18 +163,18 @@
       function toggleDropdown() {
         document.getElementById("myDropdown").classList.toggle("show");
       }
-        
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropdown-btn')) {
+
+      window.onclick = function (event) {
+        if (!event.target.matches(".dropdown-btn")) {
           var dropdowns = document.getElementsByClassName("dropdown-content");
           for (var i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
             }
           }
         }
-      }
+      };
     </script>
-</body>
+  </body>
 </html>
